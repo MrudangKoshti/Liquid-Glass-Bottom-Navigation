@@ -1,0 +1,28 @@
+name: cupertino_liquid_navbar
+description: A Flutter plugin for an iOS-native Liquid Glass bottom navigation bar with cross-platform fallback.
+version: 0.0.1
+homepage: https://github.com/YOUR_USERNAME/cupertino_liquid_navbar
+repository: https://github.com/YOUR_USERNAME/cupertino_liquid_navbar
+issue_tracker: https://github.com/YOUR_USERNAME/cupertino_liquid_navbar/issues
+
+environment:
+  sdk: '>=3.4.0 <4.0.0'
+  flutter: '>=3.22.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  plugin:
+    platforms:
+      android:
+        package: com.example.cupertino_liquid_navbar
+        pluginClass: CupertinoLiquidNavbarPlugin
+      ios:
+        pluginClass: CupertinoLiquidNavbarPlugin
