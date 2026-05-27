@@ -24,9 +24,9 @@ class LiquidGlassNavItem {
     this.selectedSfSymbol,
     this.selectedFallbackIcon,
   }) : assert(
-          sfSymbol != null || fallbackIcon != null,
-          'Either sfSymbol or fallbackIcon must be provided.',
-        );
+         sfSymbol != null || fallbackIcon != null,
+         'Either sfSymbol or fallbackIcon must be provided.',
+       );
 
   Map<String, Object?> toMap() {
     return {

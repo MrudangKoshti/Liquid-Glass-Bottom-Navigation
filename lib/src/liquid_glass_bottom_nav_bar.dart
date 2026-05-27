@@ -18,15 +18,16 @@ class LiquidGlassBottomNavBar extends StatelessWidget {
     required this.items,
     required this.onTap,
     this.style = const LiquidGlassNavStyle(),
-  })  : assert(items.length >= 2, 'At least 2 nav items are required.'),
-        assert(
-          selectedIndex >= 0 && selectedIndex < items.length,
-          'selectedIndex must be inside items range.',
-        );
+  }) : assert(items.length >= 2, 'At least 2 nav items are required.'),
+       assert(
+         selectedIndex >= 0 && selectedIndex < items.length,
+         'selectedIndex must be inside items range.',
+       );
 
   @override
   Widget build(BuildContext context) {
-    final shouldUseNativeIOS = defaultTargetPlatform == TargetPlatform.iOS &&
+    final shouldUseNativeIOS =
+        defaultTargetPlatform == TargetPlatform.iOS &&
         style.useNativeOnIOS &&
         !style.forceFallback;
 

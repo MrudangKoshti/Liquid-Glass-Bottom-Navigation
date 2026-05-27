@@ -58,10 +58,10 @@ class LiquidGlassFallbackNavBar extends StatelessWidget {
                             Icon(
                               isSelected
                                   ? (item.selectedFallbackIcon ??
-                                      item.fallbackIcon ??
-                                      Icons.circle)
+                                        item.fallbackIcon ??
+                                        Icons.circle)
                                   : (item.fallbackIcon ??
-                                      Icons.circle_outlined),
+                                        Icons.circle_outlined),
                               size: isSelected
                                   ? style.selectedIconSize
                                   : style.iconSize,
@@ -73,7 +73,8 @@ class LiquidGlassFallbackNavBar extends StatelessWidget {
                               const SizedBox(height: 4),
                               Text(
                                 item.label,
-                                style: style.labelStyle ??
+                                style:
+                                    style.labelStyle ??
                                     TextStyle(
                                       fontSize: 11,
                                       fontWeight: isSelected

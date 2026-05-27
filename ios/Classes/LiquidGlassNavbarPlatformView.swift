@@ -136,18 +136,43 @@ class LiquidGlassNavbarPlatformView: NSObject, FlutterPlatformView {
     }
 
     private static func decodeStyle(_ rawStyle: [String: Any]) -> LiquidGlassNavStyleModel {
-        LiquidGlassNavStyleModel(
+        let selectedStyleRaw = rawStyle["selectedStyle"] as? Int ?? 1
+        let selectedStyle = LiquidGlassSelectedStyle(rawValue: selectedStyleRaw) ?? .pill
+        let containerMaterialRaw = rawStyle["containerMaterialStyle"] as? Int ?? 1
+        let selectedMaterialRaw = rawStyle["selectedMaterialStyle"] as? Int ?? 2
+
+        return LiquidGlassNavStyleModel(
             height: rawStyle["height"] as? Double ?? 72,
             marginHorizontal: rawStyle["marginHorizontal"] as? Double ?? 16,
             marginBottom: rawStyle["marginBottom"] as? Double ?? 12,
             borderRadius: rawStyle["borderRadius"] as? Double ?? 32,
+            itemSpacing: rawStyle["itemSpacing"] as? Double ?? 8,
+            verticalPadding: rawStyle["verticalPadding"] as? Double ?? 8,
+            preset: rawStyle["preset"] as? Int ?? 0,
+            selectedStyle: selectedStyle,
+            intensity: rawStyle["intensity"] as? Double ?? 1.0,
             tintColor: UIColor.fromFlutterColor(rawStyle["tintColor"] as? Int),
             selectedItemColor: UIColor.fromFlutterColor(rawStyle["selectedItemColor"] as? Int) ?? .black,
             unselectedItemColor: UIColor.fromFlutterColor(rawStyle["unselectedItemColor"] as? Int) ?? .darkGray,
             iconSize: rawStyle["iconSize"] as? Double ?? 22,
             selectedIconSize: rawStyle["selectedIconSize"] as? Double ?? 24,
             showLabels: rawStyle["showLabels"] as? Bool ?? true,
-            enableHaptics: rawStyle["enableHaptics"] as? Bool ?? true
+            enableHaptics: rawStyle["enableHaptics"] as? Bool ?? true,
+            containerMaterialStyle: LiquidGlassMaterialStyle(rawValue: containerMaterialRaw) ?? .ultraThin,
+            selectedMaterialStyle: LiquidGlassMaterialStyle(rawValue: selectedMaterialRaw) ?? .thin,
+            containerOpacity: rawStyle["containerOpacity"] as? Double ?? 1.0,
+            containerBorderOpacity: rawStyle["containerBorderOpacity"] as? Double ?? 0.45,
+            containerShadowOpacity: rawStyle["containerShadowOpacity"] as? Double ?? 0.08,
+            selectedPillOpacity: rawStyle["selectedPillOpacity"] as? Double ?? 1.0,
+            selectedPillBorderOpacity: rawStyle["selectedPillBorderOpacity"] as? Double ?? 0.65,
+            selectedPillShadowOpacity: rawStyle["selectedPillShadowOpacity"] as? Double ?? 0.10,
+            selectedPillHorizontalInset: rawStyle["selectedPillHorizontalInset"] as? Double ?? 2,
+            selectedPillScale: rawStyle["selectedPillScale"] as? Double ?? 1.0,
+            chromaticAberrationOpacity: rawStyle["chromaticAberrationOpacity"] as? Double ?? 0.75,
+            animationResponse: rawStyle["animationResponse"] as? Double ?? 0.28,
+            animationDampingFraction: rawStyle["animationDampingFraction"] as? Double ?? 0.85,
+            debugShowBounds: rawStyle["debugShowBounds"] as? Bool ?? false,
+            enableDragIndicator: rawStyle["enableDragIndicator"] as? Bool ?? true
         )
     }
 }
